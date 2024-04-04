@@ -2,22 +2,17 @@ import express from "express"
 import { PORT, mongoDBURL } from "./config.js"
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute.js'
-import cors from 'cors';
+import cors from 'cors'
 
 
 const app = express()
 
 app.use(express.json())
 
-app.use(cors())
-
-/* for better server protection
 app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  origin: "https://sven-tenzies.netlify.app",
 }
-))*/
+))
 
 app.use('/users', userRoute)
 
