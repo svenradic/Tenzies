@@ -7,11 +7,13 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-.eslintrc.cjs
-node_modules
-dist
+client/.eslintrc.cjs
+client/node_modules
+client/dist
 dist-ssr
 *.local
+
+server/node_modules
 
 # Editor directories and files
 .vscode/*
