@@ -103,11 +103,13 @@ function Home() {
   }
 
   function rollTheDice(){
-    tenzies ? newGame() :
-    setDice(oldDice => oldDice.map(die => die.isHeld ? die : createNewDie())
-      )
 
-    setrollCounter(oldRollCounter => oldRollCounter + 1)
+    if(tenzies) newGame()
+    else {
+      setDice(oldDice => oldDice.map(die => die.isHeld ? die : createNewDie()))
+
+      setrollCounter(oldRollCounter => oldRollCounter + 1)
+    }    
   }
 
   function newGame(){
