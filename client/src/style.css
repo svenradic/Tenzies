@@ -158,6 +158,9 @@ input{
   .header{
     width: 95%;
   }
+  .container{
+    width: 95%;
+  }
   .sign-in-button{
     margin-right: 0px;
     height: 30px;
