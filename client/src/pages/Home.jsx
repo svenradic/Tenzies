@@ -106,19 +106,20 @@ function Home() {
     tenzies ? newGame() :
     setDice(oldDice => oldDice.map(die => die.isHeld ? die : createNewDie())
       )
-    tenzies ? setrollCounter(0):
+
     setrollCounter(oldRollCounter => oldRollCounter + 1)
   }
 
   function newGame(){
     setDice(allNewDice())
     setTenzies(false)
+    setrollCounter(0)
   }
 
   return (
     <main >
       
-        {tenzies && <Confetti width={750} height={1000}/>}
+        {tenzies && <Confetti width={750} height={1200}/>}
         <Header 
           rollCounter={rollCounter} 
           getUserElements={getUserElements}
@@ -128,7 +129,13 @@ function Home() {
         <div className="container">
           {getDiceElements()}
         </div>
-        <button className="roll-dice" onClick={rollTheDice}>{tenzies ? "New Game" : "Roll Dice"}</button>
+        <div className='buttons'>
+          <button className='roll-dice' onClick={newGame}>Restart</button>
+
+           <button className="roll-dice" onClick={rollTheDice}>{tenzies ? "New Game" : "Roll Dice"}</button>
+          
+        </div>
+       
       
     </main>
   )

@@ -109,7 +109,7 @@ input{
 }
 
 .container{
-  width: 70%;
+  width: 370px;
   display: grid;
   grid-template: 50px 50px / 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
@@ -129,6 +129,11 @@ input{
 }
 .die-num{
   font-size: 2rem;
+}
+
+.buttons{
+  display: flex;
+  gap: 40px;
 }
 .roll-dice{
     height: 50px;
@@ -153,11 +158,7 @@ input{
   .header{
     width: 95%;
   }
-  .container{
-    width: 100%;
-  }
   .sign-in-button{
-    
     margin-right: 0px;
     height: 30px;
   }
