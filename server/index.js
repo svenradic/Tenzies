@@ -3,11 +3,19 @@ import { PORT, mongoDBURL } from "./config.js"
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute.js'
 import cors from 'cors'
-import https from 'https';
-import fs from 'fs';
+import compression from "compression"
+import helmet from "helmet"
+import RateLimit from "express-rate-limit"
+
+const limiter = RateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minute
+    max: 20,
+  });
 
 
 const app = express()
+
+
 
 app.use(express.json())
 
@@ -15,7 +23,13 @@ app.use(express.json())
   origin: "https://sven-tenzies.netlify.app",
 }
 ))*/
+
+app.use(limiter)
+
 app.use(cors())
+
+app.use(compression())
+app.use(helmet());
 
 app.use('/users', userRoute)
 
