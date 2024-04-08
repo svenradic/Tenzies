@@ -1,2 +1,2 @@
-const API_URL = "https://localhost:5555"
+const API_URL = "http://localhost:5555"
 export default API_URL
