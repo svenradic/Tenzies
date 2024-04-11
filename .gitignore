@@ -10,6 +10,7 @@ lerna-debug.log*
 client/.eslintrc.cjs
 client/node_modules
 client/dist
+client/api-testing.http
 dist-ssr
 *.local
 

@@ -3,7 +3,15 @@ import {Link} from 'react-router-dom'
 
 function Header(props) {
 
-
+  function handleLeaderboardDisplay(){
+    if(props.isDisplayed){
+      return  <div className='leaderboard-container'>
+      {props.getUserElements()}
+    </div>
+    } else {
+      return <p>Loading...</p>
+    }
+  }
 
   return (
     <div className='header'>
@@ -21,11 +29,9 @@ function Header(props) {
        <div className='leaderboard'>
 
             <h3>Leaderboard</h3>
-            <div className='leaderboard-container'>
-              {props.getUserElements()}
-            </div>
+            {handleLeaderboardDisplay()}
             
-          </div> 
+        </div> 
       </div>
         
       <h2>Score: {props.rollCounter}</h2> 

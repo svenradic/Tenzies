@@ -13,6 +13,7 @@ function Home() {
   const [rollCounter, setrollCounter] = React.useState(0)
   const [users, setUsers] = React.useState([])
   const {currentUser, setCurrentUser} = React.useContext(UserContext)
+  const[isDisplayed, setIsDisplayed] = React.useState(false)
 
   React.useEffect( () => {
     axios
@@ -20,6 +21,7 @@ function Home() {
       .then(res => {
         res.data.data.sort((a, b) => a.highScore - b.highScore)
         setUsers(res.data.data)
+        setIsDisplayed(true)
       })
       .catch(error => {
         console.log("Error fetching users: ", error);
@@ -127,6 +129,8 @@ function Home() {
           getUserElements={getUserElements}
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
+          isDisplayed = {isDisplayed}
+          setIsDisplayed = {setIsDisplayed}
         />
         <div className="container">
           {getDiceElements()}
